@@ -1,0 +1,27 @@
+<div class="d-flex flex-column min-vh-100">
+  <!-- Header -->
+  <app-header></app-header>
+
+  <!-- Main Content -->
+  <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+    <div class="text-center">
+      <!-- Error Image -->
+      <img
+        src="https://img.freepik.com/premium-vector/404-error-page-found-emoji-sad-smile-illustration-web-design-404-site-page_41737-574.jpg"
+        alt="Page not found! Error 404" class="img-fluid rounded shadow-lg error-image" />
+
+      <!-- Error Message -->
+      <h1 class="mt-4 display-4 fw-bold text-primary">Oops! Page Not Found</h1>
+      <p class="lead text-muted mb-4">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <button class="btn btn-warning btn-lg error-btn" routerLink="/login">
+        <i class="bi bi-arrow-left me-2"></i>
+        Back to Home
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <app-footer class="mt-auto"></app-footer>
+</div>

@@ -1,0 +1,11 @@
+.navbar {
+  padding: 0.25rem 0.5rem;
+  margin: 0;
+  // outline: 1px solid lime;
+  background-color: #4189ff;
+  color: #fff;
+  overflow-x: hidden;
+  &-brand {
+    color: #fff;
+  }
+}

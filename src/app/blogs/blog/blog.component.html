@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="row blog-cards g-3">
+  <!-- Blog Card -->
+  <app-loading style="text-align: center; margin-top: 10rem;" *ngIf="loadingBlogs && blogs.length === 0"></app-loading>
+  <div *ngFor="let blog of blogs" class="col-md-4 mb-4">
+    <div class="card h-100">
+      <img [src]="blog.photo_url" class="card-img-top" alt="{{ blog.title }}" />
+      <div class="card-body">
+        <h5 class="card-title">{{ blog.title }}</h5>
+        <p class="card-text">{{ blog.content_text | truncate: 100 }}</p>
+        <a [routerLink]="['/blog', blog.id]" class="btn btn-outline-primary">Read More</a>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Posted on {{ blog.created_at | date }}</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Infinite Scroll Trigger -->
+<div *ngIf="blogs.length > 0" class="text-center mt-4">
+  <app-loading></app-loading>
+</div>
+
+<span *ngIf="blogs.length === 1000" class="help-block text-center mt-4">
+  No More Blogs !
+</span>
+
+<app-footer></app-footer>

@@ -1,7 +1,6 @@
 # Angular9
 
-# Test-9
-https://drive.google.com/file/d/1NtuhGeLsxVlVkcywol6csbjUQ-88Yf3H/view?usp=sharing
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
 ## Development server
 

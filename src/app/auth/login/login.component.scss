@@ -1,0 +1,30 @@
+.form {
+  &-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+
+  &-group-label {
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  &-btns {
+    margin: 0 auto;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+}
+
+.help-block {
+  color: rgb(255, 65, 65);
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid rgb(255, 65, 65);
+}
+
+.error-msg {
+  color: #ff4141;
+}

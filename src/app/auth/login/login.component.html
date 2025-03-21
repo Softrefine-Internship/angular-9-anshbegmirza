@@ -1,0 +1,50 @@
+<app-header></app-header>
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm form-card">
+      <h2 class="text-center text-primary">Welcome Back</h2>
+      <p class="text-center text-muted mb-4">Please enter your credentials</p>
+      <hr>
+      <div class="help-block error-msg" *ngIf="error">
+        <p>*{{ error }}</p>
+      </div>
+      <!-- Email input -->
+      <div class="form-group mb-3">
+        <label for="email">Email:</label>
+        <div class="input-group">
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="name@example.com">
+          <button class="btn btn-outline-primary">
+            <i class="bi bi-envelope"></i>
+          </button>
+        </div>
+        <span class="help-block text-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Please enter a valid email address!
+        </span>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-group mb-3">
+        <label for="password">Password:</label>
+        <div class="input-group">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-control"
+            formControlName="password" placeholder="********">
+          <button type="button" class="btn btn-outline-primary" (click)="togglePasswordVisibility()">
+            <i class="{{ showPassword ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
+          </button>
+        </div>
+        <span class="help-block text-danger"
+          *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Password must be 8 characters long!
+        </span>
+      </div>
+
+      <!-- Form actions -->
+      <div class="d-flex form-btns align-items-center">
+        <button class="btn btn-outline-primary">Login</button>
+        <span>|</span>
+        <button class="btn btn-outline-secondary" routerLink="/signup">SignUp</button>
+      </div>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>

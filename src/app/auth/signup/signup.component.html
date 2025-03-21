@@ -1,0 +1,99 @@
+<app-header></app-header>
+<form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-sm form-card">
+      <h2 class="text-center text-primary">Create Account</h2>
+      <p class="text-center text-muted mb-4">Please fill in your details to sign up</p>
+      <hr>
+      <div class="help-block error-msg" *ngIf="error">
+        <p>*{{ error }}</p>
+      </div>
+      <div class="row">
+        <!-- First Name input -->
+        <div class="col-md-6 mb-3">
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <div class="input-group">
+              <input type="text" id="firstName" class="form-control" formControlName="firstName" placeholder="John">
+              <button class="btn btn-outline-primary"><i class="bi bi-person"></i></button>
+            </div>
+            <span class="help-block text-danger"
+              *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched">
+              Please enter a valid First name!
+            </span>
+          </div>
+        </div>
+
+        <!-- Last Name input -->
+        <div class="col-md-6 mb-3">
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <div class="input-group">
+              <input type="text" id="lastName" class="form-control" formControlName="lastName" placeholder="Doe">
+              <button class="btn btn-outline-primary"><i class="bi bi-person"></i></button>
+            </div>
+            <span class="help-block text-danger"
+              *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched">
+              Please enter a valid Last name!
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-group mb-3">
+        <label for="email">Email:</label>
+        <div class="input-group">
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="name@example.com">
+          <button class="btn btn-outline-primary">
+            <i class="bi bi-envelope"></i>
+          </button>
+        </div>
+        <span class="help-block text-danger"
+          *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          Please enter a valid email address!
+        </span>
+      </div>
+
+      <!-- Password input with eye toggle -->
+      <div class="form-group mb-3">
+        <label for="password">Password:</label>
+        <div class="input-group">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" class="form-control"
+            formControlName="password" placeholder="********">
+          <button type="button" class="btn btn-outline-primary" (click)="togglePasswordVisibility()">
+            <i class="{{ showPassword ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
+          </button>
+        </div>
+        <span class="help-block text-danger"
+          *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          Password must be 8 characters long!
+        </span>
+      </div>
+
+      <!-- Confirm Password input with eye toggle -->
+      <div class="form-group mb-3">
+        <label for="confirmPassword">Confirm Password:</label>
+        <div class="input-group">
+          <input [type]="confirmPassword ? 'text' : 'password'" id="confirmPassword" class="form-control"
+            formControlName="confirmPassword" placeholder="********">
+          <button type="button" class="btn btn-outline-primary" (click)="toggleConfirmPasswordVisibility()">
+            <i class="{{ confirmPassword ? 'bi bi-eye-slash' : 'bi bi-eye' }}"></i>
+          </button>
+        </div>
+        <span class="help-block text-danger"
+          *ngIf="signupForm.hasError('passwordsMismatch') && signupForm.get('confirmPassword')?.touched">
+          Passwords do not match!
+        </span>
+      </div>
+
+      <!-- Form actions -->
+      <div class="d-flex form-btns align-items-center">
+        <button class="btn btn-outline-primary" type="submit">SignUp</button>
+        <span>|</span>
+        <button class="btn btn-outline-secondary" routerLink="/login">Login</button>
+      </div>
+    </div>
+  </div>
+</form>
+<app-footer></app-footer>

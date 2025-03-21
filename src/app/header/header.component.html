@@ -1,0 +1,15 @@
+<!-- nav bar goes here -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/blog">Angular Blogs-9</a>
+    </div>
+    <div class="navbar navbar-right">
+      <button class="btn btn-danger btn-sm" *ngIf="isAuthenticated" (click)="onLogout()">Logout</button>
+      <button class="btn btn-danger btn-sm" *ngIf="!isAuthenticated && !isSignupPage"
+        (click)="onClickSignup()">Signup</button>
+      <button class="btn btn-danger btn-sm" *ngIf="!isAuthenticated && isSignupPage"
+        (click)="onClickLogin()">Login</button>
+    </div>
+  </div>
+</nav>

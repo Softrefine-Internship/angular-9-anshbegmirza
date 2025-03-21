@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="container-fluid mt-3 mb-3">
+  <div class="row">
+    <!-- Left Column (Blog Title, Description, Category, Image, and Footer) -->
+    <div class="col-xs-12 col-md-8">
+      <div class="card blog-card shadow-lg border-light rounded">
+        <div class="card-body">
+          <h1 class="card-title blog-title text-primary mb-3">{{ blog.title }}</h1>
+          <h6 class="card-subtitle text-muted mb-4">{{ blog.description }}</h6>
+          <span class="card-text fw-bold text-uppercase text-muted mb-3">{{ blog.category }}</span>
+
+          <div class="text-center mb-4">
+            <img [src]="blog.photo_url" class="img-fluid rounded blog-image" alt="{{ blog.title }}" />
+          </div>
+
+          <div class="card-footer text-center blog-footer bg-light">
+            <small class="text-muted">Posted on {{ blog.created_at | date:'longDate' }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column (Blog Content Text) -->
+    <div class="col-xs-12 col-md-4">
+      <div class="card shadow-lg border-light rounded">
+        <div class="card-body">
+          <p class="card-text blog-content lead text-muted">
+            {{ blog.content_text | truncate : 700}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
